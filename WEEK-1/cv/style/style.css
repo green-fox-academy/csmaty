@@ -1,0 +1,71 @@
+body {
+  color: #999;
+  font-family: 'Exo',sans-serif;
+  line-height: 1.5;
+  background-color: black;
+
+
+}
+
+.wrap {
+  max-width: 65em;
+  margin: auto;
+
+}
+
+.borderline {
+
+  margin: auto;
+  border-left: medium solid #141414;
+  border-right: medium solid #141414;
+  border-bottom: medium solid #141414;
+  border-top: medium solid #141414;
+
+  padding right: 40px;
+  padding-left: 40px;
+}
+
+
+
+
+
+header {
+  background-image: url(background2.jpg);
+  background-position: center center;
+  background-size: auto;
+  padding top: 100px;
+  padding right: 20px;
+  padding-bottom: 100px;
+  padding-left: 20px;
+  color: #999;
+  font-size: 24px;
+  margin: 0;
+}
+
+
+.description{
+  margin: 0;
+}
+
+
+h1 {
+  margin: 0;
+}
+
+blockquote{
+  text-align: right;
+}
+
+h2 {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+
+h3 {
+}
+
+
+.list{
+  font-size: 13px;
+}
