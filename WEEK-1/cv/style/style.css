@@ -3,31 +3,22 @@ body {
   font-family: 'Exo',sans-serif;
   line-height: 1.5;
   background-color: black;
-
-
 }
 
 .wrap {
   max-width: 65em;
   margin: auto;
-
 }
 
 .borderline {
-
   margin: auto;
   border-left: medium solid #141414;
   border-right: medium solid #141414;
   border-bottom: medium solid #141414;
   border-top: medium solid #141414;
-
   padding right: 40px;
   padding-left: 40px;
 }
-
-
-
-
 
 header {
   background-image: url(background2.jpg);
@@ -42,11 +33,9 @@ header {
   margin: 0;
 }
 
-
 .description{
   margin: 0;
 }
-
 
 h1 {
   margin: 0;
@@ -59,10 +48,6 @@ blockquote{
 h2 {
   text-transform: uppercase;
   margin: 0;
-}
-
-
-h3 {
 }
 
 
