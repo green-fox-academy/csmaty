@@ -9,6 +9,7 @@
     <div class="main-container">
       <header class="main-header">
 
+
         <nav class="user-menu">
           <ul>
             <li>Create account</li>
@@ -33,12 +34,12 @@
           </ul>
         </nav>
 
-        <form class="search">
-          <input type="search">
+        <form class="search" <meth="POST" action="kacsa">
+          <input type="text" pattern="e+">
         </form>
 
       </header>
-      <main>
+      <main class="main-content">
         <h1>Margaret Hamilton (scientist)</h1>
         <div class="source">From Wikipedia, the free encyclopedia</div>
         <p class="warning">
@@ -53,7 +54,6 @@
         <p>
           Hamilton has published over 130 papers, proceedings, and reports concerned with the 60 projects and six major programs in which she has been involved.
         </p>
-
         <h2>Early life</h2>
         <p>
           Margaret Heafield was born to Kenneth Heafield and Ruth Esther Heafield (née Partington).[5] She graduated from Hancock High School in 1954, and earned a B.A. in mathematics with a minor in philosophy from Earlham College in 1958.[6] After graduation, she briefly taught high school math and French while her husband finished earning his undergraduate degree. She moved to Boston, Massachusetts, with the intention of doing graduate study in abstract mathematics at Brandeis University. In 1960 she took an interim position at MIT to develop software for predicting weather on the LGP-30 and the PDP-1 computers (at Marvin Minsky's Project MAC) for professor Edward Norton Lorenz in the meteorology department.[1][7] At that time, computer science and software engineering were not yet disciplines; instead, programmers learned on the job with hands-on experience.[2]
@@ -61,13 +61,30 @@
         <p>
           From 1961 to 1963, she worked on the SAGE Project at Lincoln Labs, where she was one of the programmers who wrote software for the first AN/FSQ-7 computer (the XD-1), to search for "unfriendly" aircraft; she also wrote software for the Air Force Cambridge Research Laboratories.
         </p>
+        <h2>NASA</h2>
+        <p>
+          Hamilton then joined the Charles Stark Draper Laboratory at MIT, which at the time was working on the Apollo space mission. She eventually became the director and supervisor of software programming for Apollo and Skylab.[8]
+        </p>
+        <p>
+          At NASA, Hamilton's team was responsible for helping pioneer the Apollo on-board guidance software required to navigate and land on the Moon, and its multiple variations used on numerous missions (including the subsequent Skylab).[2] She worked to gain hands-on experience during a time when computer science and software engineering courses or disciplines were non-existent.
+        </p>
+        <p>
+          Her areas of expertise include systems design and software development, enterprise and process modelling, development paradigm, formal systems modeling languages, system-oriented objects for systems modelling and development, automated life-cycle environments, methods for maximizing software reliability and reuse, domain analysis, correctness by built-in language properties, open-architecture techniques for robust systems, full life-cycle automation, quality assurance, seamless integration, error detection and recovery techniques, man-machine interface systems, operating systems, end-to-end testing techniques, and life-cycle management techniques.[2]
+        </p>
+        <p>
+          She was one of those who developed concepts of asynchronous software, priority scheduling, and Human-in-the-loop decision capability, which became the foundation for modern, ultra-reliable software design.
+        </p>
+        <h2>Apollo 11</h2>
+        <p>
+          Hamilton's work in the Apollo Guidance Computer software prevented an abort of the Apollo 11 Moon landing:[3] Three minutes before the Lunar lander reached the Moon's surface, several computer alarms were triggered. The computer was overloaded with incoming data, because the rendezvous radar system (not necessary for landing) updated an involuntary counter in the computer, which stole cycles from the computer. Due to its robust architecture, the computer was able to keep running; the Apollo onboard flight software was developed using an asynchronous executive so that higher priority jobs (important for landing) could interrupt lower priority jobs. The fault was attributed to a faulty checklist.
+        </p>
       </main>
       <footer class="main-footer">
         footer
       </footer>
     </div>
     <aside class="main-sidebar">
-      Side
+      <a href=# class="logo">Wikipedia</a>
     </aside>
   </body>
 </html>

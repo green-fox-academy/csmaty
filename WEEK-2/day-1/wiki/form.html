@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Wikipedia</title>
+    <meta charset="utf-8">
+    <link href="style/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-container">
+        <header class="main-header">
+
+
+          <nav class="user-menu">
+            <ul>
+              <li>Create account</li>
+              <li>Not logged in</li>
+              <li>Talk</li>
+              <li>Contributions</li>
+            </ul>
+          </nav>
+
+          <nav class="talk-menu">
+            Special page
+          </nav>
+
+          <nav class="edit-menu">
+            <ul>
+              <li>Read</li>
+              <li>Edit</li>
+              <li>View History</li>
+            </ul>
+          </nav>
+
+          <form class="search" <meth="POST" action="kacsa">
+
+            <input type="search" name="search" placeholder="Search" id="searchInput">
+
+          </form>
+
+        </header>
+        <main class="main-content">
+          <h1>Create account</h1>
+          <form>
+            <p>
+              <label for="username">Username</label>
+              <input placeholder="Enter your username" type="text" id=username>
+            </p>
+
+            <p>
+              <label for="password">Password</label>
+              <input placeholder="Enter a password" type="password" id=password>
+            </p>
+
+            <p>
+              <label for="confirm-password">Confirm password</label>
+              <input placeholder="Enter a password again" type="password" id=confirm-password>
+            </p>
+
+            <p>
+              <label for="email">Email address (optional)</label>
+              <input placeholder="Enter your email adress" type="email" id=email>
+            </p>
+
+            <p class="editpage">
+              To edit this page, please enter the words that appear below in the box ("<a href="https://en.wikipedia.org/wiki/Special:Captcha/help" title="Captcha/help">more info</a>")
+            </p>
+            <label for="captche">CAPTCHA Security check</label>
+            <div class="captcha-box">
+              <div class="captcha-image">
+                <img class="captcha-image-png" src="img/captcha.png" >
+                <small class="refreshcaptcha">Refresh</small>
+              </div>
+              <input name="entercaptcha" class="entercaptcha"  id="CaptchaWord" size="12" autocomplete="off" autocorrect="off" autocapitalize="off" tabindex="8" placeholder="Enter the text you see above">
+            </div>
+
+
+            <input type="submit" name="createaccount" value="Create your account" class="createaccount">
+
+          </form>
+            <div class="madebypeople">
+              <h2>Wikipedia is made by people like you.</h2>
+              <p>
+                799,868,949 edits 5,011,836 articles 127,399 recent contributors
+              </p>
+            </div>
+
+        </main>
+      <footer class="main-footer">
+        footer
+      </footer>
+    </div>
+    <aside class="main-sidebar">
+      <a href=# class="logo">Wikipedia</a>
+    </aside>
+  </body>
+</html>

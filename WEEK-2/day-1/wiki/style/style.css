@@ -2,23 +2,38 @@ body {
   margin: 0;
   display: flex;
   min-height: 100vh;
+  background: #f6f6f6;
+
+  height: 100%;
+  font-family: sans-serif;
+}
+
+
+h1, h2 {
+font-family: serif;
+font-weight: normal;
+margin: 0;
+border-bottom: 1px solid #aaaaaa;
+overflow: hidden;
+}
+
+h1 {
+font-size: 28.8px;
 }
 
 .main-container {
-  background: yellow;
   order: 1;
   width: 100%;
 }
 
 .main-sidebar {
-  background: aqua;
   width: 176px;
   order: 0;
+  flex: 0 0 auto;
 }
 
 .main-header {
   height: 80px;
-  background: purple;
   position: relative;
 }
 
@@ -31,6 +46,14 @@ body {
 
 .main-header li {
   list-style: none;
+}
+
+.main-content {
+  border-bottom: 1px solid #a7d7f9;
+  border-left:1px solid #a7d7f9;
+  border-top: 1px solid #a7d7f9;
+  background: #ffffff;
+  padding: 16px;
 }
 
 .biography {
@@ -69,10 +92,94 @@ body {
 
 .search input {
   width: 300px;
+
 }
 
 
+
 .main-footer {
-  background: silver;
   height: 150px;
+}
+
+.logo {
+  display: block;
+  width: 135px;
+  height: 155px;
+  background: url(../img/logo.png);
+  margin: 6px auto 0;
+  color: rgba(0, 0, 0, 0);
+}
+
+
+form {
+  width: 290px;
+
+}
+
+label, input {
+  width: 100%;
+  line-height: 1.6;
+  font-size: 0.875em;
+}
+
+::placeholder {
+
+}
+
+
+input {
+  -webkit-appearance: none;
+  border: 1px solid #cccccc;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: .3em .3em .3em .6em;
+  display: block;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+
+.createaccount {
+  background: #00af89;
+  color: #fff;
+  border: 1px solid #00af89;
+  text-shadow: 0 1px rgba(0,0,0,0.1);
+  font-weight: bold;
+}
+
+.editpage {
+  line-height: 1.6;
+  font-size: 0.875em;
+}
+
+.captcha-box {
+  background-color: #f8f8f8;
+  border: 1px solid #c9c9c9;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.captcha-image {
+
+}
+
+.refreshcaptcha {
+  font-size: smaller;
+  margin: 0 0 0 3px;
+  padding: 1px 2px 1px 12px;
+  color: #0645AD;
+  cursor: pointer;
+}
+
+
+
+.captcha-image-png {
+  vertical-align: middle;
+}
+
+.madebypeople {
+  float: left;
+  display: block;
 }
