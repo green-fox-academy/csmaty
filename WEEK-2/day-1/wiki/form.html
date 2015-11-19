@@ -3,94 +3,149 @@
   <head>
     <title>My Wikipedia</title>
     <meta charset="utf-8">
-    <link href="style/style.css" rel="stylesheet">
+    <link href="style/form.css" rel="stylesheet">
   </head>
   <body>
     <div class="main-container">
-        <header class="main-header">
+      <header class="main-header">
+
+        <nav class="user-menu">
+          <ul>
+            <li>
+              <a href="">Create account</a>
+            </li>
+            <li>
+              <a href="#">Log in</a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav class="talk-menu">
+          <a href="#">Special page</a>
+        </nav>
+
+        <nav class="edit-menu">
+          <ul>
 
 
-          <nav class="user-menu">
-            <ul>
-              <li>Create account</li>
-              <li>Not logged in</li>
-              <li>Talk</li>
-              <li>Contributions</li>
-            </ul>
-          </nav>
+          </ul>
+        </nav>
 
-          <nav class="talk-menu">
-            Special page
-          </nav>
+        <form class="search">
+          <input type="search" name="search" placeholder="Search" id="searchInput">
+        </form>
 
-          <nav class="edit-menu">
-            <ul>
-              <li>Read</li>
-              <li>Edit</li>
-              <li>View History</li>
-            </ul>
-          </nav>
+      </header>
 
-          <form class="search" <meth="POST" action="kacsa">
-
-            <input type="search" name="search" placeholder="Search" id="searchInput">
-
-          </form>
-
-        </header>
-        <main class="main-content">
-          <h1>Create account</h1>
-          <form>
-            <p>
-              <label for="username">Username</label>
-              <input placeholder="Enter your username" type="text" id=username>
-            </p>
-
-            <p>
-              <label for="password">Password</label>
-              <input placeholder="Enter a password" type="password" id=password>
-            </p>
-
-            <p>
-              <label for="confirm-password">Confirm password</label>
-              <input placeholder="Enter a password again" type="password" id=confirm-password>
-            </p>
-
-            <p>
-              <label for="email">Email address (optional)</label>
-              <input placeholder="Enter your email adress" type="email" id=email>
-            </p>
-
-            <p class="editpage">
-              To edit this page, please enter the words that appear below in the box ("<a href="https://en.wikipedia.org/wiki/Special:Captcha/help" title="Captcha/help">more info</a>")
-            </p>
-            <label for="captche">CAPTCHA Security check</label>
-            <div class="captcha-box">
-              <div class="captcha-image">
-                <img class="captcha-image-png" src="img/captcha.png" >
-                <small class="refreshcaptcha">Refresh</small>
-              </div>
-              <input name="entercaptcha" class="entercaptcha"  id="CaptchaWord" size="12" autocomplete="off" autocorrect="off" autocapitalize="off" tabindex="8" placeholder="Enter the text you see above">
-            </div>
-
-
-            <input type="submit" name="createaccount" value="Create your account" class="createaccount">
-
-          </form>
-            <div class="madebypeople">
-              <h2>Wikipedia is made by people like you.</h2>
+      <main class="main-content">
+        <div class="container">
+          <div class="box-actual-form">
+            <h1>Create account</h1>
+            <form>
               <p>
-                799,868,949 edits 5,011,836 articles 127,399 recent contributors
+                <label for="username">Username
+                  <span>
+                    <a href="https://en.wikipedia.org/wiki/Wikipedia:Username_policy">(help me choose)</a>
+                  </span>
+                </label>
+                <input placeholder="Enter your username" type="text" id=username>
               </p>
-            </div>
 
-        </main>
+              <p>
+                <label for="password">Password</label>
+                <input placeholder="Enter a password" type="password" id=password>
+              </p>
+
+              <p>
+                <label for="confirm-password">Confirm password</label>
+                <input placeholder="Enter a password again" type="password" id=confirm-password>
+              </p>
+
+              <p>
+                <label for="email">Email address (optional)</label>
+                <input placeholder="Enter your email adress" type="email" id=email>
+              </p>
+
+              <p class="editpage">
+                To edit this page, please enter the words that appear below in the box ("<a href="https://en.wikipedia.org/wiki/Special:Captcha/help" title="Captcha/help">more info</a>")
+              </p>
+              <label for="captche">CAPTCHA Security check</label>
+              <div class="captcha-box">
+                <div class="captcha-image">
+                  <img class="captcha-image-png" src="img/captcha.png" >
+                  <small class="refreshcaptcha">Refresh</small>
+                </div>
+                <input name="entercaptcha" class="entercaptcha"  id="CaptchaWord" size="12" autocomplete="off" autocorrect="off" autocapitalize="off" tabindex="8" placeholder="Enter the text you see above">
+              </div>
+
+
+              <input type="submit" name="createaccount" value="Create your account" class="createaccount">
+            </form>
+          </div>
+
+          <div class="box-madebypeople">
+            <h2>Wikipedia is made by people like you.</h2>
+            <p>
+              799,868,949 edits 5,011,836 articles 127,399 recent contributors
+            </p>
+          </div>
+        </div>
+      </main>
+
       <footer class="main-footer">
         footer
       </footer>
     </div>
     <aside class="main-sidebar">
       <a href=# class="logo">Wikipedia</a>
+      <nav>
+        <ul>
+          <li>
+            <a href="">Main page</a>
+          </li>
+          <li>
+            <a href="">Contents</a>
+          </li>
+          <li>
+            <a href="">Featured content</a>
+          </li>
+          <li>
+            <a href="">Current events</a>
+          </li>
+          <li>
+            <a href="">Random article</a>
+          </li>
+          <li>
+            <a href="">Donate to Wikipedia</a>
+          </li>
+          <li>
+            <a href="">Wikipedia store</a>
+          </li>
+        </ul>
+      </nav>
+      <nav>
+        <h3>Interaction</h3>
+        <ul>
+          <li><a href="">Help</a></li>
+          <li><a href="">About Wikipedia</a></li>
+          <li><a href="">Community portal</a></li>
+          <li><a href="">Recent changes</a></li>
+          <li><a href="">Contact page</a></li>
+        </ul>
+      </nav>
+      <nav>
+        <h3>Tools</h3>
+        <ul>
+          <li><a href="">Upload file</a></li>
+          <li><a href="">Special pages</a></li>
+          <li><a href="">Printable version</a></li>
+
+        </ul>
+      </nav>
+      <nav>
+        <h3>Languages</h3>
+      </nav>
+
     </aside>
   </body>
 </html>
