@@ -65,7 +65,7 @@ a:hover {
   border-left:1px solid #a7d7f9;
   border-top: 1px solid #a7d7f9;
   background: #ffffff;
-  padding: 16px;
+  padding: 25px;
 }
 
 .main-header nav, .search {
@@ -200,6 +200,46 @@ dl dt {
 
 dl dd {
   margin-left: 70px;
+}
+
+.contents-box {
+  border: 1px solid #aaa;
+  width: 110px;
+  font-size: 13px;
+  padding: 5px;
+  display: block;
+  text-align: left;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.contents-box h4 {
+  font-size: 14px;
+}
+
+.contents-box h4 a {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.contents-box ol {
+  color: #0645ad;
+  counter-reset: section;
+  list-style-type: none;
+  padding: 0;
+  line-height: 150%;
+}
+
+.contents-box ol ol {
+  padding-left: 20px;
+}
+
+.contents-box li:before {
+  counter-increment: section;
+  content: counters(section, ".");
+  margin-right: 5px;
 }
 
 .quote {
