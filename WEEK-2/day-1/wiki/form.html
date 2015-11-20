@@ -11,30 +11,29 @@
 
         <nav class="user-menu">
           <ul>
+
             <li>
               <a href="">Create account</a>
             </li>
+
             <li>
-              <a href="#">Log in</a>
+              <a href="">Log in</a>
             </li>
           </ul>
         </nav>
 
-        <nav class="talk-menu">
-          <a href="#">Special page</a>
-        </nav>
-
-        <nav class="edit-menu">
+        <nav class="talk-menu tab">
           <ul>
-
-
+            <li class="active-tab">
+              <a href="">Special page</a>
+            </li>
           </ul>
         </nav>
 
         <form class="search">
-          <input type="search" name="search" placeholder="Search" id="searchInput">
+         <input type="search" placeholder="Search">
+         <input class="submitsearch" type="submit" value="">
         </form>
-
       </header>
 
       <main class="main-content">
@@ -75,20 +74,19 @@
                   <img class="captcha-image-png" src="img/captcha.png" >
                   <small class="refreshcaptcha">Refresh</small>
                 </div>
-                <input name="entercaptcha" class="entercaptcha"  id="CaptchaWord" size="12" autocomplete="off" autocorrect="off" autocapitalize="off" tabindex="8" placeholder="Enter the text you see above">
+                <input name="entercaptcha" class="entercaptcha"  placeholder="Enter the text you see above">
               </div>
 
-
-              <input type="submit" name="createaccount" value="Create your account" class="createaccount">
+              <input type="button" name="createaccount" value="Create your account" class="createaccount">
             </form>
           </div>
 
-          <div class="box-madebypeople">
+          <!--<div class="box-madebypeople">
             <h2>Wikipedia is made by people like you.</h2>
             <p>
               799,868,949 edits 5,011,836 articles 127,399 recent contributors
             </p>
-          </div>
+          </div>-->
         </div>
       </main>
 
