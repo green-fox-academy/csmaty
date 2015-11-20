@@ -1,7 +1,3 @@
-/*html {
-  min-height: 100%;
-}*/
-
 body {
   background: linear-gradient(to bottom, #ffffff 50px, #f6f6f6 150px);
   margin: 0;
@@ -11,23 +7,21 @@ body {
   height: 100%;
 }
 
-
 h1, h2 {
   font-family: serif;
   font-weight: normal;
   margin: 0;
   border-bottom: 1px solid #aaaaaa;
   overflow: hidden;
-
 }
 
 h1 {
   font-size: 28.8px;
 }
 
-/*Smaller font size for basic text:*/
 p {
   font-size: 0.9em;
+  line-height: 150%;
 }
 
 a {
@@ -74,28 +68,17 @@ a:hover {
   padding: 16px;
 }
 
-.biography {
-  width: 270px;
-  background: #f9f9f9;
-  float: right;
-  border: 1px solid #aaaaaa;
-  margin: 6px 0px 12px 12px;
-  padding: 25px;
-  box-sizing: border-box;
-}
-
-
 .main-header nav, .search {
   position: absolute;
 }
 
-/*.container {
+.container {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-}*/
+}
 
 .user-menu {
   right: 10px;
@@ -176,6 +159,60 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+.warning {
+  padding-left: 20px;
+}
+
+.biography {
+  width: 270px;
+  background: #f9f9f9;
+  float: right;
+  border: 1px solid #aaaaaa;
+  margin: 6px 0px 12px 12px;
+  padding: 5px 25px 5px;
+  box-sizing: border-box;
+}
+
+.bioimagetitle,
+.bioimagesubtext {
+  text-align: center;
+}
+
+.bioimagetitle {
+  margin-top: 0;
+}
+
+.bioimagesubtext {
+  font-size: 12px;
+  margin-top: 0.3em;
+}
+
+.bio-details {
+  font-size: 12px;
+  display: block;
+  margin-left: -11px;
+}
+
+dl dt {
+  float: left;
+  font-weight: bold;
+}
+
+dl dd {
+  margin-left: 70px;
+}
+
+.quote {
+  font-size: 0.9em;
+  padding-left: 40px;
+  padding-right: 40px;
+  line-height: 150%;
+}
+
+cite {
+  margin-left: 80px;
+  margin-right: 80px;
+}
 
 .main-footer {
   height: 150px;
@@ -190,60 +227,43 @@ input[type="submit"] {
   color: rgba(0, 0, 0, 0);
 }
 
-
-/*
-form {
-  width: 290px;
+.main-sidebar {
+  font-size: 0.9em;
+  padding-top: 5px;
 }
 
-label, input {
-  width: 100%;
-  line-height: 1.6;
-  font-size: 0.875em;
+.main-sidebar h3 {
+  font-size: 0.9em;
+  padding-left: 22px;
+  font-weight: normal;
+  color: #4d4d4d;
+  margin-bottom: 0;
+  margin-top: 3px;
 }
 
-
-input {
-  -webkit-appearance: none;
-  border: 1px solid #cccccc;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: .3em .3em .3em .6em;
-  display: block;
-  vertical-align: middle;
-  border-radius: 2px;
+.main-sidebar ul {
+  font-size: 0.9em;
+  list-style: none;
+  padding-left: 22px;
+  margin-top: 10px;
 }
 
-span {
-  float: right;
-  text-decoration: underline;
-  color: #0645ad;
+.sidebar-border {
+  height: 1px;
+  background: linear-gradient(to right, #fff 0%, #A8A8A8 50%, #fff 100%);
 }
 
-::-webkit-input-placeholder {
-  font-style: italic;
-  line-height: 1.2;
+.interaction li,
+.tools li,
+.print-export li {
+  padding-left: 14px;
 }
 
-.editpage {
-  line-height: 1.6;
-  font-size: 0.875em;
+.print-export ul,
+.interaction ul,
+.tools ul {
+  margin-top: 0;
 }
-
-
-
-.main-container input:focus{
-  border-color: #347bff;
-  box-shadow: inset 0 0 0;
-  outline: 0;
-}
-
-:focus {
-  outline: 0;
-}
-
-*/
 
 input[type="search"] {
   -webkit-appearance: textfield;

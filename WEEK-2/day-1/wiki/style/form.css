@@ -19,13 +19,9 @@ h1 {
   font-size: 28.8px;
 }
 
-/*Smaller font size for basic text:*/
-
-
 p {
   font-size: 0.9em;
 }
-
 
 a {
   color: rgb(6, 69, 173);
@@ -52,7 +48,6 @@ a:hover {
   position: relative;
   font-size: 12px;
 }
-
 
 .main-header ul {
   margin: 0;
@@ -81,7 +76,6 @@ a:hover {
   top: 0;
 }
 
-
 .user-menu a {
   padding: 10px 5px;
   display: block;
@@ -109,30 +103,11 @@ a:hover {
   bottom: -1px;
 }
 
-
-
-
 .active-tab a {
   background: #ffffff;
   border-bottom: 1px solid #ffffff;
   color: black;
 }
-
-/*
-.tab a:visited {
-  color: rgb(6, 69, 173)
-}
-*/
-
-/*.search {
-  bottom: 0;
-  right: 0;
-}
-
-.search input {
-  width: 300px;
-}
-*/
 
 .search {
   bottom: 5px;
@@ -140,10 +115,10 @@ a:hover {
 }
 
 .search input {
- position: absolute;
- bottom: 0;
- right: 0;
- width: 290px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 290px;
 }
 
 input[type="search"] {
@@ -166,17 +141,12 @@ form {
 label, input {
   width: 100%;
   line-height: 1.6;
-  /*font-size: 0.875em;*/
 }
-
 
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-  /*-webkit-appearance: none;*/
   border: 1px solid #cccccc;
-  /*-webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;*/
   box-sizing: border-box;
   padding: .3em .3em .3em .6em;
   display: block;
@@ -224,8 +194,6 @@ span:hover {
   margin-bottom: 15px;
 }
 
-.captcha-image {
-}
 
 .refreshcaptcha {
   font-size: smaller;
@@ -273,4 +241,41 @@ span:hover {
   background: url(../img/logo.png);
   margin: 6px auto 0;
   color: rgba(0, 0, 0, 0);
+}
+
+.main-sidebar {
+  font-size: 0.9em;
+  padding-top: 5px;
+
+}
+
+.main-sidebar h3 {
+  font-size: 0.9em;
+  padding-left: 22px;
+  font-weight: normal;
+  color: #4d4d4d;
+  margin-bottom: 0;
+  margin-top: 3px;
+}
+
+.main-sidebar ul {
+  font-size: 0.9em;
+  list-style: none;
+  padding-left: 22px;
+  margin-top: 10px;
+}
+
+.sidebar-border {
+  height: 1px;
+  background: linear-gradient(to right, #fff 0%, #A8A8A8 50%, #fff 100%);
+}
+
+.interaction li,
+.tools li {
+  padding-left: 14px;
+}
+
+.interaction ul,
+.tools ul {
+  margin-top: 0;
 }
