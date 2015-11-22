@@ -124,7 +124,7 @@ a:hover {
 }
 
 .tab a:visited {
-  color: rgb(6, 69, 173)
+  color: rgb(6, 69, 173);
 }
 
 
@@ -311,5 +311,5 @@ input[type="search"] {
 
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none
+  -webkit-appearance: none;
 }

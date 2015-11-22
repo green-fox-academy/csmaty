@@ -174,7 +174,7 @@ span:hover {
 .createaccount:hover {
   background-color: #008c6d ;
   cursor: pointer;
-  }
+}
 
 ::-webkit-input-placeholder {
   font-style: italic;
