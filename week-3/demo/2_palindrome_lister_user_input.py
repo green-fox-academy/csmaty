@@ -36,4 +36,4 @@ def strip_string(mystring):
             stripped_string += caharacter
     return(stripped_string)
 
- print(give_all_palindromes('dog goat dad duck dooDle never black sabbath abba (ororo) docock'))
+print(give_all_palindromes(str(input('Give me a text to analyse: \n\n'))))
