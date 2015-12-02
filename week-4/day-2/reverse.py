@@ -1,7 +1,7 @@
-def reverse(input_list):
-    output_list = []
-
-    for i in input_list in range(len(i)-1, -1, -1)
-        output_list.append(input_list[i])
-
-    return output_list
+def reverse_list(input_list):
+	output_list = []
+	i = len(input_list) - 1
+	while i >= 0:
+		output_list.append(input_list[i])
+		i -=1
+	return output_list
