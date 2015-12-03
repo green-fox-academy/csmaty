@@ -6,11 +6,13 @@ todolist = [
 ]
 
 menu_list = [
-        ['1: LIST ALL ITEMS'],
-        ['2: ADD ITEM'],
-        ['3: MARK ITEM AS COMPLETED'],
-        ['4: REMOVE ITEM'],
-        ['000: EXIT']
+        '   [MENU:]     ',
+        '              ',
+        '   L : LIST ALL ITEMS',
+        '   A : ADD ITEM',
+        '   C : MARK ITEM AS COMPLETED',
+        '  RM : REMOVE ITEM',
+        ' 000 : EXIT'
 
     ]
 
