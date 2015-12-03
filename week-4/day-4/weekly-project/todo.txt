@@ -1,0 +1,3 @@
+[ ] kapa
+[x] lapát
+[ ] gereblye
