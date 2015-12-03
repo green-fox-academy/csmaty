@@ -5,22 +5,7 @@ todolist = [
         {'status': '[ ]', 'description': 'vidd ki a szemetet'}
 ]
 
-menu_list = [
-        ['1: LIST ALL ITEMS'],
-        ['2: ADD ITEM'],
-        ['3: MARK ITEM AS COMPLETED'],
-        ['4: REMOVE ITEM'],
-        ['000: EXIT']
 
-    ]
-
-
-def displaymenu(menu_list):
-
-    print('\n\n')
-    for i in menu_list:
-        print(str(i))
-    print('\n\n')
 
 
 
@@ -49,7 +34,13 @@ def taskcompleted(todolist):
     return todolist
 
 
-displaymenu(menu_list)
+
+
+
+
+
+
+
 itemlister(todolist)
 itemadder(todolist)
 itemlister(todolist)
