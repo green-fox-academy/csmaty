@@ -1,3 +1,2 @@
-[ ] kapa
-[x] lapát
-[ ] gereblye
+[X] kabát
+[ ] kalap
