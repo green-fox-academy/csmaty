@@ -28,14 +28,14 @@ class TestSudokuChecker(unittest.TestCase):
 
 
     def not_1_through_9(self):
-        test_input = [1, 22, 3, 4, 5, 97, 9, 8, 7]
+        test_input = [1, 22, 3, 4, 5, 97, 9, 8, 9]
         expected = False
         actual = sudoku_checker.not_1_through_9(test_input)
         self.assertEqual(expected, actual, "The given numbers are not 1 through 9.")
 
     def not_1_through_9(self):
-        test_input = [1, 22, 3, 4, 5, 97, 9, 8, 7]
-        expected = False
+        test_input = [1, 2, 3, 4, 5, 6, 9, 8, 7]
+        expected = True
         actual = sudoku_checker.not_1_through_9(test_input)
         self.assertEqual(expected, actual, "The given numbers are not 1 through 9.")
 
