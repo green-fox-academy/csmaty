@@ -9,8 +9,8 @@ def initiate():
 def read_txt():
     import os
 
-    textfile = open("todo.txt", 'r')
-    if os.stat("todo.txt").st_size == 0:
+    textfile = open("listfile/todo.txt", 'r')
+    if os.stat("listfile/todo.txt").st_size == 0:
         pass
     else:
         lines = textfile.readlines()
@@ -26,7 +26,7 @@ def read_txt():
     textfile.close()
 
 def savetotxt():
-    textfile = open("todo.txt", 'w')
+    textfile = open("listfile/todo.txt", 'w')
     for i in todolist:
         values_combined = str(i['status']) + ' ' +  str(i['description'] + '\n')
         textfile.write(str(values_combined))
