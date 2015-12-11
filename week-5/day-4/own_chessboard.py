@@ -5,7 +5,6 @@ master = Tk()
 w = Canvas(master, width = 400, height = 400)
 w.pack()
 
-
 w.create_rectangle(0, 0, 400, 300, fill= "#ffffff")
 args = [0, 0, 20, 20]
 for j in range (4):
@@ -28,11 +27,5 @@ for j in range (4):
     args[2] += -140
     args[1] += 20
     args[3] += 20
-
-
-
-
-
-
 
 mainloop()
