@@ -16,8 +16,4 @@ class TestMonster(unittest.TestCase):
         self.assertEqual(monster.hp, 22)
         self.assertEqual(opponent.hp, 9)
 
-
-
-
-
 unittest.main()

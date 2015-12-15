@@ -6,7 +6,7 @@ class TestBall(unittest.TestCase):
         ball = Ball((40, 50),(10, 10), 10)
 
 
-    def test_position_velocit_and_size(self):
+    def test_position_velocity_and_size(self):
         ball = Ball((40, 50),(10, 10), 10)
         self.assertEqual(ball.pos, (40, 50))
         self.assertEqual(ball.size, (20, 20))

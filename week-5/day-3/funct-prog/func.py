@@ -11,5 +11,5 @@ def adder(array):
 
     return list(map(lambda x: x+1, array))
 
-def fileter_array(array):
+def filter_array(array):
     return list(filter(lambda x: x % 3 == 0, array))

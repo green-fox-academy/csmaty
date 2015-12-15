@@ -16,8 +16,4 @@ class TestBarbarian(unittest.TestCase):
         barbarian.strike(opponent)
         self.assertEqual(opponent.hp, 80)
 
-
-
-
-
 unittest.main()
