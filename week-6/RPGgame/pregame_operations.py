@@ -15,6 +15,10 @@ class Character():
         self.armor = 'Leather Armor'
         self.potion = None
 
+    def save_specs(self):
+        specs = {'name': self.name, 'dexterity': self.dexterity,'health': self.health,  'luck': self.luck, 'weapon': self.weapon, 'armor': self.armor, 'potion': self.potion, 'maxdexterity': self.maxdexterity, 'maxhealth': self.maxhealth, 'maxluck': self.maxluck}
+        return specs
+
     def enter_name(self):
         os.system('clear')
         self.name = input('\n>>Please enter a name for your hero: \n>>')
@@ -48,7 +52,6 @@ class Character():
         print('   Luck:      ' + str(self.luck))
         print('   Inventory: ' + str(self.weapon) + ', ' + str(self.armor) + ', ' +  str(self.potion))
 
-
     def show_fight_stats(self):
         print('\n   ' + str(self.name) + '\n')
         print('   Health (MAX): ' + str(self.health) + ' (' + str(self.maxhealth) + ')')
@@ -60,10 +63,8 @@ class Character():
         print('   Health (MAX): ' + str(self.health) + ' (' + str(self.maxhealth) + ')')
         print('     Dexterity : ' + str(self.dexterity))
 
-
-
-
-
+    def roll_for_strike_dexterity(self):
+        self.strike_dexterity = self.dexterity + random.randint(1, 6)
 
 
 hero = Character('name', 0 , 0, 0)

@@ -10,7 +10,7 @@ class MenuItem():
         self.itemarg = itemarg
 
     def display_menu_item(self):
-        return self.number + ': ' + self.name
+        return ' ' + self.number + ': ' + self.name
 
 class Menu():
     def __init__(self, itemlist):

@@ -18,6 +18,8 @@ def loadmenu():
     loadmenu = Menu(loadmenu_itemlist)
     loadmenu.main()
 
+
+
 def namemenu():
     hero.enter_name()
     namemenu_itemlist = [
@@ -81,20 +83,29 @@ def round_one____fight():
 
 def fightmenu():
     fightmenu_itemlist = [
-        MenuItem('1','Strike',  round_one____fight),
+        MenuItem('1','Strike',  fight_hit),
         MenuItem('2', 'Retreat',  mainmenu.main),
         MenuItem('3', 'Quit', mainmenu.main)
         ]
-    fightmenu = Menu(begingamemenu_itemlist)
+    fightmenu = Menu(fightmenu_itemlist)
     fightmenu.main()
 
 
-
-
-
-
-
-
+def fight_hit():
+    hero.roll_for_strike_dexterity()
+    monster.roll_for_strike_dexterity()
+    strikemenu_itemlist = [
+        MenuItem('1','Continue',  mainmenu.main),
+        MenuItem('2', 'Try your Luck', mainmenu.main),
+        MenuItem('3', 'Retreat', mainmenu.main),
+        MenuItem('4', 'Quit', mainmenu.main)
+        ]
+    strikemenu = Menu(strikemenu_itemlist)
+    if hero.dexterity > monster.dexterity:
+        print('\n\n  You Strike!')
+    else:
+        print('\n\n  Unfortunately the opponent strikes')
+    strikemenu.main()
 
 
 
