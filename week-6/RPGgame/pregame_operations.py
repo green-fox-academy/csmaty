@@ -66,6 +66,9 @@ class Character():
     def roll_for_strike_dexterity(self):
         self.strike_dexterity = self.dexterity + random.randint(1, 6)
 
+    def suffer_damage(self):
+        self.health -= 2
+
 
 hero = Character('name', 0 , 0, 0)
 monster = Character('Enemy Monster', 4, 6, 3)

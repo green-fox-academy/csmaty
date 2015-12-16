@@ -95,7 +95,7 @@ def fight_hit():
     hero.roll_for_strike_dexterity()
     monster.roll_for_strike_dexterity()
     strikemenu_itemlist = [
-        MenuItem('1','Continue',  mainmenu.main),
+        MenuItem('1','Continue', round_one____fight),
         MenuItem('2', 'Try your Luck', mainmenu.main),
         MenuItem('3', 'Retreat', mainmenu.main),
         MenuItem('4', 'Quit', mainmenu.main)
@@ -103,9 +103,17 @@ def fight_hit():
     strikemenu = Menu(strikemenu_itemlist)
     if hero.dexterity > monster.dexterity:
         print('\n\n  You Strike!')
+        damaged = monster
     else:
         print('\n\n  Unfortunately the opponent strikes')
+        damaged = hero
+    damaged.suffer_damage()
     strikemenu.main()
+
+
+
+
+
 
 
 
