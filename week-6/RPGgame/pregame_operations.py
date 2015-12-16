@@ -11,6 +11,9 @@ class Character():
         self.maxdexterity = 0
         self.maxhealth = 0
         self.maxluck = 0
+        self.weapon = 'Sword'
+        self.armor = 'Leather Armor'
+        self.potion = None
 
     def enter_name(self):
         os.system('clear')
@@ -41,6 +44,12 @@ class Character():
         print('\nYour selected potion is:')
         print('\n      ' + self.potion + '\n\n')
 
+    def display_character(self):
+        print('\n   Your Player: ' + self.name + '\n\n')
+        print('   Dexterity: ' + str(self.dexterity))
+        print('   Health:    ' + str(self.health))
+        print('   Luck:      ' + str(self.luck))
+        print('   Inventory: ' + str(self.weapon) + ', ' + str(self.armor) + ', ' +  str(self.potion))
 
 
 character = Character('name', 0 , 0, 0)

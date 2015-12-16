@@ -43,26 +43,40 @@ def statsmenu():
 def potion_select():
     character.potion_message()
     potionlist = [
-        MenuItem('1','Potion of Health', character.add_potion, 'Potion of Health'),
-        MenuItem('2', 'Potion of Dexterity', character.add_potion, 'Potion of Dexterity'),
-        MenuItem('3', 'Potion of Luck', character.add_potion, 'Potion of Luck'),
+        MenuItem('1','Potion of Health', reconsider_potion, 'Potion of Health'),
+        MenuItem('2', 'Potion of Dexterity', reconsider_potion, 'Potion of Dexterity'),
+        MenuItem('3', 'Potion of Luck', reconsider_potion, 'Potion of Luck'),
         MenuItem('4', 'Quit', mainmenu.main)
         ]
     potions = Menu(potionlist)
     potions.main()
-    potionmenu()
 
-
-
-def potionmenu():
-    # character.potion_message()
+def reconsider_potion(potion):
+    character.add_potion(potion)
     potionmenu_itemlist = [
         MenuItem('1','Select another potion', potion_select),
-        MenuItem('2', 'Continue', mainmenu.main),
+        MenuItem('2', 'Continue', begin_game_screen),
         MenuItem('3', 'Quit', mainmenu.main)
         ]
     potionmenu = Menu(potionmenu_itemlist)
     potionmenu.main()
+
+def begin_game_screen():
+    character.display_character()
+    begingamemenu_itemlist = [
+        MenuItem('1','Begin Game',  mainmenu.main),
+        MenuItem('2', 'Save',  mainmenu.main),
+        MenuItem('3', 'Quit', mainmenu.main)
+        ]
+    begingamemenu = Menu(begingamemenu_itemlist)
+    begingamemenu.main()
+
+def round_one____fight():
+    print("Test your Sword in a test fight")
+
+
+
+
 
 
 
