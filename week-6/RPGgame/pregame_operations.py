@@ -35,9 +35,6 @@ class Character():
         print('   Health:    ' + str(self.health))
         print('   Luck:      ' + str(self.luck))
 
-    def potion_message(self):
-        print('\nSelect one potion to take with youself: \n\n')
-
     def add_potion(self, potion):
         os.system('clear')
         self.potion = potion
@@ -52,15 +49,23 @@ class Character():
         print('   Inventory: ' + str(self.weapon) + ', ' + str(self.armor) + ', ' +  str(self.potion))
 
 
-    def show_fight_stats():
+    def show_fight_stats(self):
         print('\n   ' + str(self.name) + '\n')
         print('   Health (MAX): ' + str(self.health) + ' (' + str(self.maxhealth) + ')')
         print('     Dexterity : ' + str(self.dexterity))
         print('     Luck (MAX): ' + str(self.luck) + ' (' + str(self.maxhealth) + ')')
+
+    def show_enemy_fight_stats(self):
+        print('\n   ' + str(self.name) + '\n')
+        print('   Health (MAX): ' + str(self.health) + ' (' + str(self.maxhealth) + ')')
+        print('     Dexterity : ' + str(self.dexterity))
+
+
 
 
 
 
 
 hero = Character('name', 0 , 0, 0)
-monster = Character('Nemjoarc', 4, 6, 3)
+monster = Character('Enemy Monster', 4, 6, 3)
+monster.maxhealth = 6
