@@ -3,10 +3,11 @@ import os
 
 
 class MenuItem():
-    def __init__(self, number, name, action):
+    def __init__(self, number, name, action, itemarg = None):
         self.number = number
         self.name = name
         self.action = action
+        self.itemarg = itemarg
 
     def display_menu_item(self):
         return self.number + ': ' + self.name
@@ -30,7 +31,9 @@ class Menu():
         if chosen_option in numberlist:
             for item in self.itemlist:
                 if item.number == chosen_option:
-                    return item.action()
+                    if item.itemarg == None:
+                        return item.action()
+                    return item.action(item.itemarg)
         else:
             print('\n>>>>INCORRECT INPUT!!!<<<<\n')
             return 'INCORRECT INPUT'

@@ -8,6 +8,9 @@ class Character():
         self.dexterity = dexterity
         self.health = health
         self.luck = luck
+        self.maxdexterity = 0
+        self.maxhealth = 0
+        self.maxluck = 0
 
     def enter_name(self):
         os.system('clear')
@@ -18,8 +21,11 @@ class Character():
     def roll_stats(self):
         os.system('clear')
         self.dexterity = random.randint(1, 6) + 6
+        self.maxdexterity = self.dexterity
         self.health = random.randint(1, 6) + random.randint(1, 6) + 6
+        self.maxhealth = self.health
         self.luck = random.randint(1, 6) + 6
+        self.maxluck = self.luck
 
         print('\nSTATS rolled for ' + self.name + ':\n\n')
         print('   Dexterity: ' + str(self.dexterity))
@@ -31,6 +37,9 @@ class Character():
 
     def add_potion(self, potion):
         self.potion = potion
+        print('\nYour selected potion:')
+        print('\n      ' + self.potion + '\n\n')
+
 
 
 character = Character('name', 0 , 0, 0)

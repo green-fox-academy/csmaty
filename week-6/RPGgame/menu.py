@@ -43,9 +43,9 @@ def statsmenu():
 def potion_selector():
     character.potion_message()
     potionlist = [
-        MenuItem('1','Potion of Health', character.add_potion),
-        MenuItem('2', 'Potion of Dexterity', character.add_potion),
-        MenuItem('3', 'Potion of Luck', character.add_potion),
+        MenuItem('1','Potion of Health', character.add_potion, 'Potion of Health'),
+        MenuItem('2', 'Potion of Dexterity', character.add_potion, 'Potion of Health'),
+        MenuItem('3', 'Potion of Luck', character.add_potion, 'Potion of Health'),
         MenuItem('4', 'Quit', mainmenu.main)
         ]
     potionmenu = Menu(potionlist)
