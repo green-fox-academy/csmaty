@@ -33,23 +33,39 @@ def statsmenu():
     character.roll_stats()
     statsmenu_itemlist = [
         MenuItem('1','I would like to roll for new stats', character.roll_stats),
-        MenuItem('2', 'Save Stats and Continue', potion_selector),
+        MenuItem('2', 'Save Stats and Continue', potion_select),
         MenuItem('3', 'Save Stats', mainmenu.main),
         MenuItem('4', 'Quit', mainmenu.main)
         ]
     statsmenu = Menu(statsmenu_itemlist)
     statsmenu.main()
 
-def potion_selector():
+def potion_select():
     character.potion_message()
     potionlist = [
         MenuItem('1','Potion of Health', character.add_potion, 'Potion of Health'),
-        MenuItem('2', 'Potion of Dexterity', character.add_potion, 'Potion of Health'),
-        MenuItem('3', 'Potion of Luck', character.add_potion, 'Potion of Health'),
+        MenuItem('2', 'Potion of Dexterity', character.add_potion, 'Potion of Dexterity'),
+        MenuItem('3', 'Potion of Luck', character.add_potion, 'Potion of Luck'),
         MenuItem('4', 'Quit', mainmenu.main)
         ]
-    potionmenu = Menu(potionlist)
+    potions = Menu(potionlist)
+    potions.main()
+    potionmenu()
+
+
+
+def potionmenu():
+    # character.potion_message()
+    potionmenu_itemlist = [
+        MenuItem('1','Select another potion', potion_select),
+        MenuItem('2', 'Continue', mainmenu.main),
+        MenuItem('3', 'Quit', mainmenu.main)
+        ]
+    potionmenu = Menu(potionmenu_itemlist)
     potionmenu.main()
+
+
+
 
 
 mainmenu_itemlist = [

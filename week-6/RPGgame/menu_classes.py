@@ -36,10 +36,10 @@ class Menu():
                     return item.action(item.itemarg)
         else:
             print('\n>>>>INCORRECT INPUT!!!<<<<\n')
-            return 'INCORRECT INPUT'
-            self.user_chooses()
+            # return 'INCORRECT INPUT'
+            self.main()
 
     def main(self):
-        while True:
+        # while True:
             self.displaymenu()
             self.user_chooses()

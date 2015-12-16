@@ -36,8 +36,9 @@ class Character():
         print('\nSelect one potion to take with youself: \n\n')
 
     def add_potion(self, potion):
+        os.system('clear')
         self.potion = potion
-        print('\nYour selected potion:')
+        print('\nYour selected potion is:')
         print('\n      ' + self.potion + '\n\n')
 
 
