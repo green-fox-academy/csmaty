@@ -52,4 +52,15 @@ class Character():
         print('   Inventory: ' + str(self.weapon) + ', ' + str(self.armor) + ', ' +  str(self.potion))
 
 
-character = Character('name', 0 , 0, 0)
+    def show_fight_stats():
+        print('\n   ' + str(self.name) + '\n')
+        print('   Health (MAX): ' + str(self.health) + ' (' + str(self.maxhealth) + ')')
+        print('     Dexterity : ' + str(self.dexterity))
+        print('     Luck (MAX): ' + str(self.luck) + ' (' + str(self.maxhealth) + ')')
+
+
+
+
+
+hero = Character('name', 0 , 0, 0)
+monster = Character('Nemjoarc', 4, 6, 3)

@@ -73,6 +73,7 @@ def begin_game_screen():
 
 def round_one____fight():
     print("Test your Sword in a test fight")
+    character.show_fight_stats()
 
 
 
