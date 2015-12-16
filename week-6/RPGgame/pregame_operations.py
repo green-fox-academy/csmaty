@@ -26,4 +26,11 @@ class Character():
         print('   Health:    ' + str(self.health))
         print('   Luck:      ' + str(self.luck))
 
+    def potion_message(self):
+        print('\nSelect one potion to take with youself: \n\n')
+
+    def add_potion(self, potion):
+        self.potion = potion
+
+
 character = Character('name', 0 , 0, 0)
