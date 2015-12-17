@@ -1,5 +1,6 @@
 import os
 import random
+import json
 
 
 class Character():
@@ -15,9 +16,11 @@ class Character():
         self.armor = 'Leather Armor'
         self.potion = None
 
-    def save_char_specs(self):
-        specs = {'name': self.name, 'dexterity': self.dexterity,'health': self.health, 'luck': self.luck, 'weapon': self.weapon, 'armor': self.armor, 'potion': self.potion, 'maxdexterity': self.maxdexterity, 'maxhealth': self.maxhealth, 'maxluck': self.maxluck}
-        return specs
+        self.charspecs = {'name': self.name, 'dexterity': self.dexterity,'health': self.health, 'luck': self.luck, 'weapon': self.weapon, 'armor': self.armor, 'potion': self.potion, 'maxdexterity': self.maxdexterity, 'maxhealth': self.maxhealth, 'maxluck': self.maxluck}
+
+    def export_charspecs(self):
+        with open('charspecs.txt', 'w') as savefile:
+            json.dump(self.charspecs, savefile)
 
     def enter_name(self):
         os.system('clear')
@@ -100,7 +103,10 @@ class FightTurn():
                 self.player.reduce_luck()
 
 
+
 hero = Character(None, 0, 0, 0)
 monster = Character('Enemy Monster', 4, 12, 4)
 monster.maxhealth = 12
 testfight = FightTurn(hero, monster, None)
+
+hero.export_charspecs()
