@@ -1,7 +1,6 @@
 from pregame_operations import *
 import os
 
-
 class MenuItem():
     def __init__(self, number, name, action, itemarg = None):
         self.number = number

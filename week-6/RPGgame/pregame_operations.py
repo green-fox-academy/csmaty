@@ -71,15 +71,11 @@ class Character():
     def reduce_luck(self):
         self.luck -= 1
 
-# class Opponent(Character):
-#     pass
-
 class FightTurn():
     def __init__(self, player, opponent, loser_for_turn):
         self.loser_for_turn = loser_for_turn
         self.player = player
         self.opponent = opponent
-
 
     def decide_who_strikes(self):
         if self.player.dexterity + random.randint(1, 6) > self.opponent.dexterity + random.randint(1, 6):
