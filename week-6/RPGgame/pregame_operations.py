@@ -15,8 +15,8 @@ class Character():
         self.armor = 'Leather Armor'
         self.potion = None
 
-    def save_specs(self):
-        specs = {'name': self.name, 'dexterity': self.dexterity,'health': self.health,  'luck': self.luck, 'weapon': self.weapon, 'armor': self.armor, 'potion': self.potion, 'maxdexterity': self.maxdexterity, 'maxhealth': self.maxhealth, 'maxluck': self.maxluck}
+    def save_char_specs(self):
+        specs = {'name': self.name, 'dexterity': self.dexterity,'health': self.health, 'luck': self.luck, 'weapon': self.weapon, 'armor': self.armor, 'potion': self.potion, 'maxdexterity': self.maxdexterity, 'maxhealth': self.maxhealth, 'maxluck': self.maxluck}
         return specs
 
     def enter_name(self):
@@ -66,10 +66,23 @@ class Character():
     def roll_for_strike_dexterity(self):
         self.strike_dexterity = self.dexterity + random.randint(1, 6)
 
-    def suffer_damage(self):
-        self.health -= 2
+    def suffer_damage(self, damagepoint):
+        self.health -= damagepoint
+    def reduce_luck(self):
+        self.luck -= 1
+
+class Opponent(Character):
+    pass
+
+class FightTurn():
+    def __init__(self, loser_for_turn):
+        self.loser_for_turn = loser_for_turn
+
+def d6_roll():
+    return random.randint(1, 6)
 
 
 hero = Character('name', 0 , 0, 0)
-monster = Character('Enemy Monster', 4, 6, 3)
-monster.maxhealth = 6
+monster = Character('Enemy Monster', 4, 12, 4)
+monster.maxhealth = 12
+testfight = FightTurn(None)

@@ -25,8 +25,7 @@ def namemenu():
     namemenu_itemlist = [
         MenuItem('1','I would like to use a different name', hero.enter_name),
         MenuItem('2', 'Save Name and Continue', statsmenu),
-        MenuItem('3', 'Save Name', mainmenu.main),
-        MenuItem('4', 'Quit', mainmenu.main)
+        MenuItem('3', 'Back to Main Menu', mainmenu.main)
         ]
     namemenu = Menu(namemenu_itemlist)
     namemenu.main()
@@ -67,7 +66,7 @@ def begin_game_screen():
     hero.display_character()
     begingamemenu_itemlist = [
         MenuItem('1','Begin Game',  round_one____fight),
-        MenuItem('2', 'Save',  mainmenu.main),
+        MenuItem('2', 'Save Hero',  mainmenu.main),
         MenuItem('3', 'Quit', mainmenu.main)
         ]
     begingamemenu = Menu(begingamemenu_itemlist)
@@ -79,9 +78,6 @@ def round_one____fight():
     hero.show_fight_stats()
     print('\n****')
     monster.show_enemy_fight_stats()
-    fightmenu()
-
-def fightmenu():
     fightmenu_itemlist = [
         MenuItem('1','Strike',  fight_hit),
         MenuItem('2', 'Retreat',  mainmenu.main),
@@ -95,28 +91,39 @@ def fight_hit():
     hero.roll_for_strike_dexterity()
     monster.roll_for_strike_dexterity()
     strikemenu_itemlist = [
-        MenuItem('1','Continue', round_one____fight),
-        MenuItem('2', 'Try your Luck', mainmenu.main),
+        MenuItem('1','Continue', next_strike),
+        MenuItem('2', 'Try your Luck', roll_for_luck),
         MenuItem('3', 'Retreat', mainmenu.main),
         MenuItem('4', 'Quit', mainmenu.main)
         ]
     strikemenu = Menu(strikemenu_itemlist)
     if hero.dexterity > monster.dexterity:
         print('\n\n  You Strike!')
-        damaged = monster
+        testfight.loser_for_turn = monster
     else:
         print('\n\n  Unfortunately the opponent strikes')
-        damaged = hero
-    damaged.suffer_damage()
+        testfight.loser_for_turn = hero
     strikemenu.main()
 
+def next_strike():
+    testfight.loser_for_turn.suffer_damage(2)
+    round_one____fight()
 
 
-
-
-
-
-
+def roll_for_luck():
+    if random.randint(1, 6) + random.randint(1, 6) > hero.luck:
+        if testfight.loser_for_turn == hero:
+            hero.suffer_damage(3)
+        else:
+            hero.suffer_damage(1)
+    else:
+        if testfight.loser_for_turn == hero:
+            hero.suffer_damage(1)
+            hero.reduce_luck()
+        else:
+            hero.suffer_damage(1)
+            hero.reduce_luck()
+    round_one____fight()
 
 mainmenu_itemlist = [
     MenuItem('1','New game', newgamemenu),
