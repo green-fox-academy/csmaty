@@ -18,13 +18,13 @@ def loadmenu():
     loadmenu = Menu(loadmenu_itemlist)
     loadmenu.main()
 
-# def quitmenu():
-#     loadmenu_itemlist = [
-#             MenuItem('1','Choose from Saved Games', mainmenu.main),
-#             MenuItem('2', 'Back to Main Menu', mainmenu.main),
-#             ]
-#     loadmenu = Menu(loadmenu_itemlist)
-#     loadmenu.main()
+def quitmenu():
+    loadmenu_itemlist = [
+            MenuItem('1','Choose from Saved Games', mainmenu.main),
+            MenuItem('2', 'Back to Main Menu', mainmenu.main),
+            ]
+    loadmenu = Menu(loadmenu_itemlist)
+    loadmenu.main()
 
 def namemenu():
     hero.enter_name()

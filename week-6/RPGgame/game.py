@@ -3,4 +3,7 @@ from pregame_operations import *
 
 
 
-mainmenu.main()
+menu_to_display = mainmenu
+
+while True:
+    menu_to_display.main()
