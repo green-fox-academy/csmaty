@@ -1,13 +1,14 @@
 from pregame_operations import *
 from menu_classes import *
+from menu_instances import *
 import os
 
 def newgamemenu():
-    newgamemenu_itemlist = [
-        MenuItem('1','Start New Game', namemenu),
-        MenuItem('2', 'Back to Main Menu', mainmenu.main)
-        ]
-    newgamemenu = Menu(newgamemenu_itemlist)
+    # newgamemenu_itemlist = [
+    #     MenuItem('1','Start New Game', namemenu),
+    #     MenuItem('2', 'Back to Main Menu', mainmenu.main)
+    #     ]
+    # newgamemenu = Menu(newgamemenu_itemlist)
     newgamemenu.main()
 
 def loadmenu():
