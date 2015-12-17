@@ -1,14 +1,13 @@
 from pregame_operations import *
 from menu_classes import *
-from menu_instances import *
 import os
 
 def newgamemenu():
-    # newgamemenu_itemlist = [
-    #     MenuItem('1','Start New Game', namemenu),
-    #     MenuItem('2', 'Back to Main Menu', mainmenu.main)
-    #     ]
-    # newgamemenu = Menu(newgamemenu_itemlist)
+    newgamemenu_itemlist = [
+        MenuItem('1','Start New Game', namemenu),
+        MenuItem('2', 'Back to Main Menu', mainmenu.main)
+        ]
+    newgamemenu = Menu(newgamemenu_itemlist)
     newgamemenu.main()
 
 def loadmenu():
@@ -19,14 +18,12 @@ def loadmenu():
     loadmenu = Menu(loadmenu_itemlist)
     loadmenu.main()
 
-
-
 def namemenu():
     hero.enter_name()
     namemenu_itemlist = [
         MenuItem('1','I would like to use a different name', hero.enter_name),
-        MenuItem('2', 'Save Name and Continue', statsmenu),
-        MenuItem('3', 'Back to Main Menu', mainmenu.main)
+        MenuItem('2', 'Continue to Hero Stats', statsmenu),
+        MenuItem('3', 'Quit', mainmenu.main)
         ]
     namemenu = Menu(namemenu_itemlist)
     namemenu.main()
@@ -34,7 +31,7 @@ def namemenu():
 def statsmenu():
     hero.roll_stats()
     statsmenu_itemlist = [
-        MenuItem('1','I would like to roll for new stats', hero.roll_stats),
+        MenuItem('1','Roll for new stats', hero.roll_stats),
         MenuItem('2', 'Save Stats and Continue', potion_select),
         MenuItem('3', 'Save Stats', mainmenu.main),
         MenuItem('4', 'Quit', mainmenu.main)
@@ -48,7 +45,6 @@ def potion_select():
         MenuItem('1','Potion of Health', reconsider_potion, 'Potion of Health'),
         MenuItem('2', 'Potion of Dexterity', reconsider_potion, 'Potion of Dexterity'),
         MenuItem('3', 'Potion of Luck', reconsider_potion, 'Potion of Luck'),
-        MenuItem('4', 'Quit', mainmenu.main)
         ]
     potions = Menu(potionlist)
     potions.main()
@@ -87,10 +83,7 @@ def round_one____fight():
     fightmenu = Menu(fightmenu_itemlist)
     fightmenu.main()
 
-
 def fight_hit():
-    hero.roll_for_strike_dexterity()
-    monster.roll_for_strike_dexterity()
     strikemenu_itemlist = [
         MenuItem('1','Continue', next_strike),
         MenuItem('2', 'Try your Luck', roll_for_luck),
@@ -98,12 +91,7 @@ def fight_hit():
         MenuItem('4', 'Quit', mainmenu.main)
         ]
     strikemenu = Menu(strikemenu_itemlist)
-    if hero.dexterity > monster.dexterity:
-        print('\n\n  You Strike!')
-        testfight.loser_for_turn = monster
-    else:
-        print('\n\n  Unfortunately the opponent strikes')
-        testfight.loser_for_turn = hero
+    testfight.decide_who_strikes()
     strikemenu.main()
 
 def next_strike():
@@ -112,18 +100,7 @@ def next_strike():
 
 
 def roll_for_luck():
-    if random.randint(1, 6) + random.randint(1, 6) > hero.luck:
-        if testfight.loser_for_turn == hero:
-            hero.suffer_damage(3)
-        else:
-            hero.suffer_damage(1)
-    else:
-        if testfight.loser_for_turn == hero:
-            hero.suffer_damage(1)
-            hero.reduce_luck()
-        else:
-            hero.suffer_damage(1)
-            hero.reduce_luck()
+    testfight.player_tries_luck()
     round_one____fight()
 
 mainmenu_itemlist = [

@@ -53,36 +53,58 @@ class Character():
         print('   Inventory: ' + str(self.weapon) + ', ' + str(self.armor) + ', ' +  str(self.potion))
 
     def show_fight_stats(self):
-        print('\n   ' + str(self.name) + '\n')
+        print('\n   >' + str(self.name) + '<\n')
         print('   Health (MAX): ' + str(self.health) + ' (' + str(self.maxhealth) + ')')
         print('     Dexterity : ' + str(self.dexterity))
-        print('     Luck (MAX): ' + str(self.luck) + ' (' + str(self.maxhealth) + ')')
+        print('     Luck (MAX): ' + str(self.luck) + ' (' + str(self.maxluck) + ')')
 
     def show_enemy_fight_stats(self):
-        print('\n   ' + str(self.name) + '\n')
+        print('\n   >' + str(self.name) + '<\n')
         print('   Health (MAX): ' + str(self.health) + ' (' + str(self.maxhealth) + ')')
         print('     Dexterity : ' + str(self.dexterity))
 
     def roll_for_strike_dexterity(self):
-        self.strike_dexterity = self.dexterity + random.randint(1, 6)
+        return self.dexterity + random.randint(1, 6)
 
     def suffer_damage(self, damagepoint):
         self.health -= damagepoint
     def reduce_luck(self):
         self.luck -= 1
 
-class Opponent(Character):
-    pass
+# class Opponent(Character):
+#     pass
 
 class FightTurn():
-    def __init__(self, loser_for_turn):
+    def __init__(self, player, opponent, loser_for_turn):
         self.loser_for_turn = loser_for_turn
+        self.player = player
+        self.opponent = opponent
 
-def d6_roll():
-    return random.randint(1, 6)
+
+    def decide_who_strikes(self):
+        if self.player.dexterity + random.randint(1, 6) > self.opponent.dexterity + random.randint(1, 6):
+            print('\n\n  You Strike!')
+            self.loser_for_turn = self.opponent
+        else:
+            print('\n\n  Unfortunately the opponent strikes')
+            self.loser_for_turn = self.player
+
+    def player_tries_luck(self):
+        if random.randint(1, 6) + random.randint(1, 6) > self.player.luck:
+            if self.loser_for_turn == self.player:
+                self.player.suffer_damage(3)
+            else:
+                self.player.suffer_damage(1)
+        else:
+            if self.loser_for_turn == self.player:
+                self.player.suffer_damage(1)
+                self.player.reduce_luck()
+            else:
+                self.player.suffer_damage(1)
+                self.player.reduce_luck()
 
 
-hero = Character('name', 0 , 0, 0)
+hero = Character(None, 0, 0, 0)
 monster = Character('Enemy Monster', 4, 12, 4)
 monster.maxhealth = 12
-testfight = FightTurn(None)
+testfight = FightTurn(hero, monster, None)
