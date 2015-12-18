@@ -1,1 +1,1 @@
-{"dexterity": 0, "armor": "Leather Armor", "weapon": "Sword", "maxhealth": 0, "maxdexterity": 0, "potion": null, "luck": 0, "maxluck": 0, "health": 0, "name": null}
+{"dexterity": 0, "maxluck": 0, "health": 0, "maxhealth": 0, "maxdexterity": 0, "armor": "Leather Armor", "luck": 0, "weapon": "Sword", "name": null, "potion": null}
