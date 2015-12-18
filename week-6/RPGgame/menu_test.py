@@ -12,7 +12,7 @@ class TestMenu(unittest.TestCase):
     def test_display_menu_item(self):
         item = MenuItem('1', 'New Game', 'action')
         result = item.display_menu_item()
-        self.assertEqual(result, '1: New Game')
+        self.assertEqual(result, ' 1: New Game')
 
     def test_select_and_call_action_correct_input(self):
         def action2():

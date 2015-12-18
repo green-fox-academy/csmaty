@@ -102,11 +102,7 @@ class FightTurn():
                 self.player.suffer_damage(1)
                 self.player.reduce_luck()
 
-
-
 hero = Character(None, 0, 0, 0)
 monster = Character('Enemy Monster', 4, 12, 4)
 monster.maxhealth = 12
 testfight = FightTurn(hero, monster, None)
-
-hero.export_charspecs()

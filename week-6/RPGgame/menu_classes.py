@@ -1,4 +1,4 @@
-from pregame_operations import *
+from characters import *
 import os
 
 class MenuItem():
@@ -39,6 +39,5 @@ class Menu():
             self.main()
 
     def main(self):
-        while True:
             self.displaymenu()
             self.user_chooses()

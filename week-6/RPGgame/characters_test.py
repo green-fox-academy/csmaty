@@ -1,5 +1,5 @@
 import unittest
-from pregame_operations import *
+from characters import *
 
 class TestPreGameOperations(unittest.TestCase):
 
