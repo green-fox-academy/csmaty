@@ -22,10 +22,9 @@ nextButton.addEventListener('click', function() {
     currentImage = 0;
   }
   displayedPicture.setAttribute('src', pictureList[currentImage])
+  removeHighlightfromPrevThumbnail()
+  addHighlightToCurrentThumbnail (currentImage)
 });
-
-
-
 
 
 var previousButton = document.querySelector('.show_previous');
@@ -35,18 +34,19 @@ previousButton.addEventListener('click', function(thumbs) {
     currentImage = pictureList.length -1;
   }
   displayedPicture.setAttribute('src', pictureList[currentImage])
-
-  currentThumbnail = document.querySelector('.current_thumbnail');
-  if (currentThumbnail !== null) {
-    currentThumbnail.classList.remove('current_thumbnail')
-  }
-
-  thumbs = document.querySelectorAll('.thumbnail_list img')
-  thumbs[currentImage].classList.add('current_thumbnail');
-
-  console.log(currentImage);
-  console.log(thumbs[currentImage]);
+  removeHighlightfromPrevThumbnail()
+  addHighlightToCurrentThumbnail (currentImage)
 });
+
+function removeHighlightfromPrevThumbnail() {
+  currentThumbnail = document.querySelector('.current_thumbnail');
+  currentThumbnail.classList.remove('current_thumbnail');
+}
+
+function addHighlightToCurrentThumbnail (currentImage) {
+  thumbs = document.querySelectorAll('.thumbnail_list img');
+  thumbs[currentImage].classList.add('current_thumbnail');
+}
 
 
 function insertAsThumbnail(src) {
@@ -55,7 +55,10 @@ function insertAsThumbnail(src) {
   thumbnail.setAttribute('src', src);
   thumbnailList.appendChild(thumbnail);
 
+
+
   thumbnail.addEventListener('click', function(){
+
     currentImage = pictureList.indexOf(src);
     displayedPicture.setAttribute('src', pictureList[currentImage]);
 
@@ -69,9 +72,6 @@ function insertAsThumbnail(src) {
   });
 }
 
-// function changeImageThroughTumbnail () {
-//
-// }
 
 
 function main () {
@@ -79,6 +79,7 @@ function main () {
     insertAsThumbnail(e);
   });
   currentImage = 0;
+  thumbs = document.querySelectorAll('.thumbnail_list img')
   thumbs[currentImage].classList.add('current_thumbnail');
 }
 
