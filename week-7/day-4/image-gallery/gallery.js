@@ -10,30 +10,42 @@ var pictureList = [
   'http://www2.psd100.com/ppp/2013/11/2701/Cute-littles-cattle-1127125620.png'];
 
 
+var displayedPicture = document.querySelector('.current_image');
+var thumbs
+var currentThumbnail
+var currentImage
 
 var nextButton = document.querySelector('.show_next');
-var previousButton = document.querySelector('.show_previous');
-var displayedPicture = document.querySelector('.current_image');
-var currentThumbnail = document.querySelector('.current_thumbnail');
-var currentImage = 0
-
 nextButton.addEventListener('click', function() {
   currentImage++;
   if (currentImage > pictureList.length -1) {
     currentImage = 0;
   }
   displayedPicture.setAttribute('src', pictureList[currentImage])
-  console.log(currentImage);
-
 });
 
-previousButton.addEventListener('click', function() {
+
+
+
+
+var previousButton = document.querySelector('.show_previous');
+previousButton.addEventListener('click', function(thumbs) {
   currentImage--;
   if (currentImage < 0) {
     currentImage = pictureList.length -1;
   }
   displayedPicture.setAttribute('src', pictureList[currentImage])
+
+  currentThumbnail = document.querySelector('.current_thumbnail');
+  if (currentThumbnail !== null) {
+    currentThumbnail.classList.remove('current_thumbnail')
+  }
+
+  thumbs = document.querySelectorAll('.thumbnail_list img')
+  thumbs[currentImage].classList.add('current_thumbnail');
+
   console.log(currentImage);
+  console.log(thumbs[currentImage]);
 });
 
 
@@ -46,7 +58,6 @@ function insertAsThumbnail(src) {
   thumbnail.addEventListener('click', function(){
     currentImage = pictureList.indexOf(src);
     displayedPicture.setAttribute('src', pictureList[currentImage]);
-
 
     currentThumbnail = document.querySelector('.current_thumbnail');
     if (currentThumbnail !== null) {
@@ -62,6 +73,13 @@ function insertAsThumbnail(src) {
 //
 // }
 
-pictureList.forEach(function(e){
-  insertAsThumbnail(e);
-});
+
+function main () {
+  pictureList.forEach(function(e){
+    insertAsThumbnail(e);
+  });
+  currentImage = 0;
+  thumbs[currentImage].classList.add('current_thumbnail');
+}
+
+main();
