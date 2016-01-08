@@ -3,6 +3,7 @@ body {
   font-family: 'Exo',sans-serif;
   line-height: 1.5;
   background-color: black;
+  text-transform: uppercase;
 }
 
 .wrap {
