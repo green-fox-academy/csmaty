@@ -21,7 +21,7 @@ var listTodoItems = function (response) {
   var todoItems = JSON.parse(response);
   todoItems.forEach(function(e){
     var todoItem = document.createElement('p');
-    console.log(e);
+    // console.log(e);
     todoItem.innerText = e.id + ': ' + e.text + '_______' + e.completed;
     todoContainer.appendChild(todoItem);
   })
@@ -49,9 +49,6 @@ var markTodoItemCompleted = function (response) {
 //   todoItems.splice(index, 10)
 // };
 
-
-
-
 // var createTodoCallback = function (response) {
 //   refreshItemsDisplay();
 // }
@@ -62,20 +59,25 @@ var markTodoItemCompleted = function (response) {
 // createRequest('DELETE', "https://mysterious-dusk-8248.herokuapp.com/todos/10", {},
 //  refreshItemsDisplay);
 
-// for (var i = 503; i <= 999; i++) {
-//   var httpRequest = new XMLHttpRequest();
-//   var todolink = "https://mysterious-dusk-8248.herokuapp.com/todos/" + String(i);
-//   console.log(todolink);
-//   httpRequest.open('DELETE', todolink);
-//   httpRequest.setRequestHeader('Content-Type', 'application/json');
-//   httpRequest.send();
+for (var i = 1000; i < 2000; i++) {
+  var httpRequest = new XMLHttpRequest();
+  var todolink = "https://mysterious-dusk-8248.herokuapp.com/todos/" + String(i);
+  console.log(todolink);
+  httpRequest.open('DELETE', todolink);
+  httpRequest.setRequestHeader('Content-Type', 'application/json');
+  httpRequest.send();
 // }
 
+ var httpRequest = new XMLHttpRequest();
+ httpRequest.open('DELETE', "https://mysterious-dusk-8248.herokuapp.com/todos/25");
+ httpRequest.setRequestHeader('Content-Type', 'application/json');
+ httpRequest.send();
+
  // var httpRequest = new XMLHttpRequest();
- // httpRequest.open('DELETE', "https://mysterious-dusk-8248.herokuapp.com/todos/25");
+ // httpRequest.open('PUT', "https://mysterious-dusk-8248.herokuapp.com/todos/5");
  // httpRequest.setRequestHeader('Content-Type', 'application/json');
- // httpRequest.send();
+ // httpRequest.send(JSON.stringify({'text': 'valami'}));
 
 
- createRequest('PUT', 'https://mysterious-dusk-8248.herokuapp.com/todos/1', {}, refreshItemsDisplay);
+ // createRequest('PUT', 'https://mysterious-dusk-8248.herokuapp.com/todos/1', {}, refreshItemsDisplay);
  refreshItemsDisplay()
