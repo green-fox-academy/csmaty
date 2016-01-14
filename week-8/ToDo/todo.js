@@ -17,7 +17,7 @@ function createRequest(url, callback) {
 
 var dataToSend = JSON.stringify({text: ''})
 
-function createPostRequest(url, callback, dataTosSend) {
+function createRequest(url, callback, dataTosSend) {
   var request = new XMLHttpRequest();
   request.open('POST', url);
   request.setRequestHeader('Content-Type', 'application/json')
