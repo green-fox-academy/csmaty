@@ -1,8 +1,8 @@
 'use strict';
 
-var url = "https://mysterious-dusk-8248.herokuapp.com/todos";
+// var url = "https://mysterious-dusk-8248.herokuapp.com/todos";
+var url = 'http://localhost:3000/todos'
 var todoContainer = document.querySelector('.todo-container');
-
 
 var listAllButton = document.querySelector('.list-all-todo-button');
 listAllButton.addEventListener('click', function() {
@@ -50,6 +50,44 @@ var addTodoItem = function () {
   createRequest('POST', url, newTodo, displayModified);
 };
 
+
+var displayModified = function(response) {
+  clearDisplay();
+  var modifiedItem = JSON.parse(response);
+  var todoItem = document.createElement('p');
+  var itemStatus
+  if (modifiedItem.completed === true) {
+    itemStatus = '[X]';
+  } else {
+    itemStatus = '[_]';
+  }
+  todoItem.innerText = 'MODIFIED: ' + modifiedItem.id + ': ' + itemStatus + '  ' + modifiedItem.text;
+  todoContainer.appendChild(todoItem);
+};
+
+var listTodoItems = function (response) {
+  clearDisplay();
+  var todoItems = JSON.parse(response);
+  todoItems.forEach(function(e){
+    var todoItem = document.createElement('p');
+    if (e.completed === true) {
+      var itemStatus = '[X]';
+    } else {
+      var itemStatus = '[_]';
+    }
+    todoItem.innerText = e.id + ': ' + itemStatus + '  ' + e.text;
+    todoContainer.appendChild(todoItem);
+  })
+};
+
+var refreshItemsDisplay = function () {
+  createRequest('GET', url, {}, listTodoItems);
+};
+
+function clearDisplay() {
+  todoContainer.innerHTML = '';
+}
+
 function createRequest (method, url, data, callback) {
   var httpRequest = new XMLHttpRequest();
   httpRequest.open(method, url);
@@ -63,38 +101,8 @@ function createRequest (method, url, data, callback) {
   };
 }
 
-var displayModified = function(response) {
-  var modifiedItem = JSON.parse(response);
-  todoContainer.innerHTML = ''
+function init() {
+  refreshItemsDisplay();
+}
 
-  var todoItem = document.createElement('p');
-  var itemStatus
-  if (modifiedItem.completed === true) {
-    itemStatus = '[X]';
-  } else {
-    itemStatus = '[_]';
-  }
-  todoItem.innerText = 'MODIFIED: ' + modifiedItem.id + ': ' + modifiedItem.text + '  [' + modifiedItem.completed + ']'
-  todoItem.innerText = 'MODIFIED: ' + modifiedItem.id + ': ' + itemStatus + '  ' + modifiedItem.text;
-  todoContainer.appendChild(todoItem);
-};
-
-var listTodoItems = function (response) {
-  var todoItems = JSON.parse(response);
-  todoContainer.innerHTML = ''
-  todoItems.forEach(function(e){
-    var todoItem = document.createElement('p');
-    var itemStatus
-    if (e.completed === true) {
-      itemStatus = '[X]';
-    } else {
-      itemStatus = '[_]';
-    }
-    todoItem.innerText = e.id + ': ' + itemStatus + '  ' + e.text;
-    todoContainer.appendChild(todoItem);
-  })
-};
-
-var refreshItemsDisplay = function () {
-  createRequest('GET', url, {}, listTodoItems);
-};
+init();
