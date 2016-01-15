@@ -42,3 +42,8 @@ addTodoItem('ki');
 app.get('/todos', function (req, res) {
   res.json(itemsList);
 });
+
+app.post("/todos", function (req, res) {
+  var item = addTodoItem(req.body);
+  // res.status(201).json(item);
+});

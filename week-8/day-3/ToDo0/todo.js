@@ -2,7 +2,53 @@
 
 var url = "https://mysterious-dusk-8248.herokuapp.com/todos";
 var todoContainer = document.querySelector('.todo-container');
-var newTodo = JSON.stringify({text: ''});
+
+
+var listAllButton = document.querySelector('.list-all-todo-button');
+listAllButton.addEventListener('click', function() {
+  refreshItemsDisplay();
+})
+
+var submitTodoButton = document.querySelector('.submit-todo-button');
+var addTodoInput = document.querySelector('.todo-input');
+submitTodoButton.addEventListener('click', function() {
+  addTodoItem();
+})
+
+var removeTodoButton = document.querySelector('.remove-todo-button');
+var removeInput = document.querySelector('.remove-input');
+removeTodoButton.addEventListener('click', function() {
+  removeTodoItem();
+})
+
+var completedTodoButton = document.querySelector('.completed-todo-button');
+var completedTodoInput = document.querySelector('.completed-todo-input');
+completedTodoButton.addEventListener('click', function() {
+  updateChosenItem();
+})
+
+var updateChosenItem = function () {
+  var todoUrl = url + '/' + completedTodoInput.value
+  createRequest('GET', todoUrl, null, setAsCompleted);
+};
+
+var setAsCompleted = function(response) {
+  var chosenItem = JSON.parse(response);
+  var itemtext = chosenItem.text
+  var todoUrl = url + '/' + completedTodoInput.value
+  var updatedTodo = JSON.stringify({text: itemtext, completed: 'true'});
+  createRequest('PUT', todoUrl, updatedTodo, displayModified)
+};
+
+var removeTodoItem = function () {
+  var todoUrl = url + '/' + removeInput.value
+  createRequest('DELETE', todoUrl, null, displayModified);
+};
+
+var addTodoItem = function () {
+  var newTodo = JSON.stringify({text: addTodoInput.value});
+  createRequest('POST', url, newTodo, displayModified);
+};
 
 function createRequest (method, url, data, callback) {
   var httpRequest = new XMLHttpRequest();
@@ -17,67 +63,30 @@ function createRequest (method, url, data, callback) {
   };
 }
 
+var displayModified = function(response) {
+  var modifiedItem = JSON.parse(response);
+  todoContainer.innerHTML = ''
+  var todoItem = document.createElement('p');
+  todoItem.innerText = modifiedItem.id + ': ' + modifiedItem.text + '  [' + modifiedItem.completed + ']'
+  todoContainer.appendChild(todoItem);
+};
+
 var listTodoItems = function (response) {
   var todoItems = JSON.parse(response);
+  todoContainer.innerHTML = ''
   todoItems.forEach(function(e){
     var todoItem = document.createElement('p');
-    // console.log(e);
-    todoItem.innerText = e.id + ': ' + e.text + '_______' + e.completed;
+    todoItem.innerText = e.id + ': ' + e.text + '  [' + e.completed + ']';
     todoContainer.appendChild(todoItem);
   })
 };
 
 var refreshItemsDisplay = function () {
+  // clearInputfields();
   createRequest('GET', url, {}, listTodoItems);
 };
 
-var addTodoItem = function () {
-  createRequest('POST', url, newTodo, refreshItemsDisplay);
+function clearInputfields() {
+  var inputfields = document.getElementsById('input')
+  inputfields.reset();
 };
-
-var removeTodoItem = function (response) {
-  individualitem = JSON.parse(response);
-  createRequest('DELETE', url, {}, listTodoItems);
-}
-
-var markTodoItemCompleted = function (response) {
-  createRequest('PUT', url, {"completed": "true"}, listTodoItems);
-}
-
-// var removeTodoItem = function (response) {
-//   var todoItems = JSON.parse(response);
-//   todoItems.splice(index, 10)
-// };
-
-// var createTodoCallback = function (response) {
-//   refreshItemsDisplay();
-// }
-
-// createRequest('POST', url, newTodo, refreshItemsDisplay);
-
-
-// createRequest('DELETE', "https://mysterious-dusk-8248.herokuapp.com/todos/10", {},
-//  refreshItemsDisplay);
-
-for (var i = 1000; i < 2000; i++) {
-  var httpRequest = new XMLHttpRequest();
-  var todolink = "https://mysterious-dusk-8248.herokuapp.com/todos/" + String(i);
-  console.log(todolink);
-  httpRequest.open('DELETE', todolink);
-  httpRequest.setRequestHeader('Content-Type', 'application/json');
-  httpRequest.send();
-// }
-
- var httpRequest = new XMLHttpRequest();
- httpRequest.open('DELETE', "https://mysterious-dusk-8248.herokuapp.com/todos/25");
- httpRequest.setRequestHeader('Content-Type', 'application/json');
- httpRequest.send();
-
- // var httpRequest = new XMLHttpRequest();
- // httpRequest.open('PUT', "https://mysterious-dusk-8248.herokuapp.com/todos/5");
- // httpRequest.setRequestHeader('Content-Type', 'application/json');
- // httpRequest.send(JSON.stringify({'text': 'valami'}));
-
-
- // createRequest('PUT', 'https://mysterious-dusk-8248.herokuapp.com/todos/1', {}, refreshItemsDisplay);
- refreshItemsDisplay()
