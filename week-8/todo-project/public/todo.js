@@ -1,6 +1,5 @@
 'use strict';
 
-// var url = "https://mysterious-dusk-8248.herokuapp.com/todos";
 var url = 'http://localhost:3000/todos'
 var todoContainer = document.querySelector('.todo-container');
 
@@ -27,6 +26,18 @@ completedTodoButton.addEventListener('click', function() {
   updateChosenItem();
 })
 
+var addTodoItem = function () {
+  var newTodo = JSON.stringify({text: addTodoInput.value});
+  createRequest('POST', url, newTodo, null);
+  refreshItemsDisplay();
+};
+
+var removeTodoItem = function () {
+  var todoUrl = url + '/' + removeInput.value
+  createRequest('DELETE', todoUrl, null, null);
+  refreshItemsDisplay();
+};
+
 var updateChosenItem = function () {
   var todoUrl = url + '/' + completedTodoInput.value
   createRequest('GET', todoUrl, null, setAsCompleted);
@@ -37,32 +48,12 @@ var setAsCompleted = function(response) {
   var itemtext = chosenItem.text
   var todoUrl = url + '/' + completedTodoInput.value
   var updatedTodo = JSON.stringify({text: itemtext, completed: 'true'});
-  createRequest('PUT', todoUrl, updatedTodo, displayModified)
+  createRequest('PUT', todoUrl, updatedTodo, null)
+  refreshItemsDisplay();
 };
 
-var removeTodoItem = function () {
-  var todoUrl = url + '/' + removeInput.value
-  createRequest('DELETE', todoUrl, null, displayModified);
-};
-
-var addTodoItem = function () {
-  var newTodo = JSON.stringify({text: addTodoInput.value});
-  createRequest('POST', url, newTodo, displayModified);
-};
-
-
-var displayModified = function(response) {
-  clearDisplay();
-  var modifiedItem = JSON.parse(response);
-  var todoItem = document.createElement('p');
-  var itemStatus
-  if (modifiedItem.completed === true) {
-    itemStatus = '[X]';
-  } else {
-    itemStatus = '[_]';
-  }
-  todoItem.innerText = 'MODIFIED: ' + modifiedItem.id + ': ' + itemStatus + '  ' + modifiedItem.text;
-  todoContainer.appendChild(todoItem);
+var refreshItemsDisplay = function () {
+  createRequest('GET', url, null, listTodoItems);
 };
 
 var listTodoItems = function (response) {
@@ -80,29 +71,32 @@ var listTodoItems = function (response) {
   })
 };
 
-var refreshItemsDisplay = function () {
-  createRequest('GET', url, {}, listTodoItems);
-};
-
-function clearDisplay() {
-  todoContainer.innerHTML = '';
-}
-
 function createRequest (method, url, data, callback) {
   var httpRequest = new XMLHttpRequest();
   httpRequest.open(method, url);
   httpRequest.setRequestHeader('Content-Type', 'application/json');
   httpRequest.send(data);
   httpRequest.onreadystatechange = function() {
-    console.log('state: ', httpRequest.readyState);
     if (httpRequest.readyState === 4) {
-      callback(httpRequest.response);
+      if (callback !== null) {
+        callback(httpRequest.response);
+      }
     }
   };
 }
 
+function clearDisplay() {
+  todoContainer.innerHTML = '';
+  var inputFields = document.getElementsByTagName('input');
+  for (var i = 0; i < inputFields.length; i++) {
+    inputFields[i].value = '';
+  }
+}
+
+
 function init() {
   refreshItemsDisplay();
 }
+
 
 init();
