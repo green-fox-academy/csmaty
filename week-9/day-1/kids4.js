@@ -18,7 +18,4 @@ function getTheLongestNamesAge(kids) {
   return longestNamedKid.age;
 }
 
-
-
-
 console.log(getTheLongestNamesAge(kids)); // 8
