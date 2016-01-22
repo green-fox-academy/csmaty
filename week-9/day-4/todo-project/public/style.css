@@ -1,0 +1,21 @@
+body {
+  background: #D1D0CE;
+  text-align: center;
+  font-family: 'Exo',sans-serif;
+  font-size: 24px;
+}
+
+.todo-line {
+}
+
+p {
+	display: inline;
+	line-height: 2;
+}
+
+button {
+
+  margin-bottom: 30px;
+  margin: 20px;
+}
+

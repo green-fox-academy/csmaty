@@ -8,17 +8,10 @@ var connection = mysql.createConnection({
   database : 'todo'
 });
 
-function getItem(id, callback) {
-  connection.query('SELECT * FROM todolist WHERE id=?', id, function(err, result) {
-    if (err) throw err;
-    callback(result);
-  });
-}
 
-function addItem(attributes, callback) {
+function addItem(attributes) {
   connection.query('INSERT INTO todolist SET ?', attributes, function(err, result) {
     if (err) throw err;
-    callback(result);
   });
 }
 
@@ -42,6 +35,13 @@ function updateItem(id, callback) {
   connection.query('UPDATE todolist SET COMPLETED=true WHERE id=?', [id], function(err, result) {
     if (err) throw err;
     callback(result)
+  });
+}
+
+function getItem(id, callback) {
+  connection.query('SELECT * FROM todolist WHERE id=?', id, function(err, result) {
+    if (err) throw err;
+    callback(result);
   });
 }
 

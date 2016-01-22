@@ -3,27 +3,10 @@
 var url = 'http://localhost:3000/todos'
 var todoContainer = document.querySelector('.todo-container');
 
-var listAllButton = document.querySelector('.list-all-todo-button');
-listAllButton.addEventListener('click', function() {
-  refreshItemsDisplay();
-})
-
 var submitTodoButton = document.querySelector('.submit-todo-button');
 var addTodoInput = document.querySelector('.todo-input');
 submitTodoButton.addEventListener('click', function() {
   addTodoItem();
-})
-
-var removeTodoButton = document.querySelector('.remove-todo-button');
-var removeInput = document.querySelector('.remove-input');
-removeTodoButton.addEventListener('click', function() {
-  removeTodoItem();
-})
-
-var completedTodoButton = document.querySelector('.completed-todo-button');
-var completedTodoInput = document.querySelector('.completed-todo-input');
-completedTodoButton.addEventListener('click', function() {
-  updateChosenItem();
 })
 
 var addTodoItem = function () {
@@ -32,24 +15,17 @@ var addTodoItem = function () {
   refreshItemsDisplay();
 };
 
-var removeTodoItem = function () {
-  var todoUrl = url + '/' + removeInput.value
+var removeTodoItem = function (id) {
+  var todoUrl = url + '/' + id;
   createRequest('DELETE', todoUrl, null, null);
   refreshItemsDisplay();
 };
 
-var updateChosenItem = function () {
-  var todoUrl = url + '/' + completedTodoInput.value
-  createRequest('GET', todoUrl, null, setAsCompleted);
-};
-
-var setAsCompleted = function(response) {
-  var chosenItem = JSON.parse(response);
-  var itemtext = chosenItem.text
-  var todoUrl = url + '/' + completedTodoInput.value
-  var updatedTodo = JSON.stringify({text: itemtext, completed: 'true'});
-  createRequest('PUT', todoUrl, updatedTodo, null)
-  refreshItemsDisplay();
+var updateChosenItem = function (id) {
+    var updateStatus = JSON.stringify({completed: 'true'});
+    var todoUrl = url + '/' + id
+    createRequest('PUT', todoUrl, null, null);
+    refreshItemsDisplay();
 };
 
 var refreshItemsDisplay = function () {
@@ -59,17 +35,48 @@ var refreshItemsDisplay = function () {
 var listTodoItems = function (response) {
   clearDisplay();
   var todoItems = JSON.parse(response);
-  todoItems.forEach(function(e){
+  todoItems.forEach(function(item){
+    var newTodoLine = document.createElement('div');
+    newTodoLine.setAttribute('class', 'todo-line')
+
+    var completedIcon = document.createElement('button')
+    completedIcon.innerText = 'COMPL';
+    completedIcon.setAttribute('class', 'completed-icon')
+    completedIcon.setAttribute('id', item.id);
+    newTodoLine.appendChild(completedIcon);
+    completedIcon.addEventListener('click', function() {
+      var id = event.target.id;
+      updateChosenItem(id);
+    })
+    
     var todoItem = document.createElement('p');
-    if (e.completed == true) {
+    if (item.completed == true) {
       var itemStatus = '[X]';
     } else {
       var itemStatus = '[_]';
     }
-    todoItem.innerText = e.id + ': ' + itemStatus + '  ' + e.text;
-    todoContainer.appendChild(todoItem);
+    todoItem.innerText = itemStatus + '  ' + item.text;
+    newTodoLine.appendChild(todoItem);
+
+    var deleteIcon = document.createElement('button')
+    deleteIcon.setAttribute('class', 'delete-icon')
+    deleteIcon.innerText = 'DEL';
+    deleteIcon.setAttribute('id', item.id);
+    newTodoLine.appendChild(deleteIcon);
+    deleteIcon.addEventListener('click', function() {
+      var id = event.target.id;
+      removeTodoItem(id);
+    })
+
+    todoContainer.appendChild(newTodoLine);
   })
 };
+
+function deletebybutton(id) {
+  var todoUrl = url + '/' + id;
+  createRequest('DELETE', todoUrl, null, null);
+  refreshItemsDisplay();
+}
 
 function createRequest (method, url, data, callback) {
   var httpRequest = new XMLHttpRequest();
@@ -100,3 +107,4 @@ function init() {
 
 
 init();
+
